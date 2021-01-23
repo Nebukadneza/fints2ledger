@@ -18,8 +18,8 @@ class CsvConverter:
         amount = str(hbciData["amount"].amount)
         currency = hbciData["amount"].currency
         posting_text = hbciData["posting_text"]
-        applicant_name = hbciData["applicant_name"]
-        purpose = hbciData["purpose"]
+        applicant_name = "%(applicant_name)s (%(applicant_iban)s)"%hbciData
+        purpose = "%(posting_text)s %(purpose)s"%hbciData
         return self.separator.join(
             [date,
              amount,
